@@ -1,0 +1,44 @@
+﻿[Dictionary]
+Version=CSPro 6.1
+Label=Reports
+Name=REPORTS_DICT
+RecordTypeStart=1
+RecordTypeLen=1
+Positions=Relative
+ZeroFill=No
+DecimalChar=Yes
+
+[Level]
+Label=Reports questionnaire
+Name=REPORTS_QUEST
+
+[IdItems]
+
+[Item]
+Label=Reports identification
+Name=REPORTS_ID
+Start=2
+Len=1
+
+[Record]
+Label=Reports record
+Name=REPORTS_REC
+RecordTypeValue='1'
+RecordLen=3
+
+[Item]
+Label=Report
+Name=REPORT
+Start=3
+Len=1
+
+[ValueSet]
+Label=Report
+Name=REPORT_VS1
+Value=1;Completed interviews by day
+Value=2;Counts versus expected
+Value=3;Housing type
+Value=4;Age by sex table
+Value=5;Population pyramid
+Value=6;Household size
+Value=9;Exit

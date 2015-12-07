@@ -1,0 +1,127 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Counts vs. Expected</title>
+		<link href="css/reports.css" rel="stylesheet" type="text/css" />
+		<style>
+			.bar.household {
+			  fill: steelblue;
+			}
+			
+			.bar.expected {
+			  fill: none;
+			  stroke: steelblue;
+			}
+
+			.bar.text {
+				fill: white;
+			}
+			
+			.axis {
+			  font: 10px sans-serif;
+			}
+
+			.axis path,
+			.axis line {
+			  fill: none;
+			  stroke: #000;
+			  shape-rendering: crispEdges;
+			}
+			
+			.x.axis line {
+				stroke: #555;
+				stroke-opacity: 0.25;
+				fill: none;
+			}
+
+	</style>
+	</head>
+	<body>
+		<h1>Counts vs. Expected</h1>
+		<br/>
+		<div id="chart"></div>
+		<script src="js/d3.v3.min.js"></script>
+		<script src="data/counts-vs-expected-data.js"></script>
+		<script>
+
+			var margin = {top: 20, right: 20, bottom: 35, left: 40},
+				width = 600 - margin.left - margin.right,
+				height = 400 - margin.top - margin.bottom;
+
+			var y = d3.scale.ordinal()
+				.rangeRoundBands([0, height], .5);
+
+			var x = d3.scale.linear()
+				.range([0, width]);
+
+			var xAxis = d3.svg.axis()
+				.scale(x)
+				.orient("bottom")
+				.innerTickSize(-height);
+
+			var yAxis = d3.svg.axis()
+				.scale(y)
+				.orient("left");
+
+			var svg = d3.select("#chart").append("svg")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+			  .append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+				
+
+		  y.domain(data.map(function(d) { return d.EA; }));
+		  x.domain([0, d3.max(data, function(d) { return d.expected; })]);
+
+		  svg.append("g")
+			  .attr("class", "x axis")
+			  .attr("transform", "translate(0," + height + ")")
+			  .call(xAxis)
+			.append("text")
+			  .attr("transform", "translate(" + width/2 + ", 0)")
+			  .attr("y", 25)
+			  .attr("dy", ".71em")
+			  .style("text-anchor", "middle")
+			  .text("Number of households completed out of number expected");
+			  
+		  svg.append("g")
+			  .attr("class", "y axis")
+			  .call(yAxis)
+			.append("text")
+			  .attr("transform", "rotate(-90)")
+			  .attr("y", 6)
+			  .attr("dy", ".71em")
+			  .style("text-anchor", "end")
+			  .text("EA");
+
+		  svg.selectAll(".bar.expected")
+			  .data(data)
+			.enter().append("rect")
+			  .attr("class", "bar expected")
+			  .attr("y", function(d) { return y(d.EA); })
+			  .attr("height", y.rangeBand())
+			  .attr("x", 0)
+			  .attr("width", function(d) { return x(d.expected); });
+			  
+		  svg.selectAll(".bar.household")
+			  .data(data)
+			.enter().append("rect")
+			  .attr("class", "bar household")
+			  .attr("y", function(d) { return y(d.EA); })
+			  .attr("height", y.rangeBand())
+			  .attr("x", 0)
+			  .attr("width", function(d) { return x(d.households); });
+
+		  svg.selectAll(".bar.text")
+			  .data(data)
+			.enter().append("text")
+			  .attr("class", "bar text")
+			  .attr("y", function(d) { return y(d.EA); })
+			  .attr("dy", y.rangeBand()/2)
+			  .attr("x", function (d) { return x(d.households); })
+			  .attr("dx", -10)
+			  .attr("text-anchor", "end")
+			  .text(function (d) {return Math.round(100*d.households/d.expected) + "%";});
+		</script>
+	</body>
+</html>

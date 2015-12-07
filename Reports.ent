@@ -1,0 +1,26 @@
+﻿[CSPro Application]
+Version=CSPro 6.1
+Label=REPORTS
+Name=REPORTS
+AppType=DataEntry
+OperatorID=No
+CAPI=Yes
+CAPIFont1=-016 0000 0000 0000 0400 0000 0000 0000 0000 0000 0000 0000 0000 Arial
+CAPIFont2=-016 0000 0000 0000 0400 0000 0000 0000 0000 0000 0000 0000 0000 Arial
+CAPIFont1Color=0
+CAPIFont2Color=16711680
+[External Dictionaries]
+File=.\Census Dictionary.dcf
+File=.\ExpectedCounts.dcf
+[AppCode]
+File=.\Reports.ent.apc
+[Message]
+File=.\Reports.ent.mgf
+[Help]
+File=.\Reports.ent.qsf
+[Forms]
+File=.\Reports.fmf
+[Dictionary Types]
+Dict-Type=.\Reports.dcf,Input,.\Reports.fmf
+Dict-Type=.\Census Dictionary.dcf,External
+Dict-Type=.\ExpectedCounts.dcf,External

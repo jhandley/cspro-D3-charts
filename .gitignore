@@ -1,0 +1,8 @@
+*.dat.*
+*.pen
+*.err
+*.lst
+*.tbw
+reports/data
+addvisits
+

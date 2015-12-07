@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Household Size</title>
+		<link href="css/reports.css" rel="stylesheet" type="text/css" />
+		<style>
+			.bar {
+			  fill: steelblue;
+			}
+
+			.axis {
+			  font: 10px sans-serif;
+			}
+
+			.axis path,
+			.axis line {
+			  fill: none;
+			  stroke: #000;
+			  shape-rendering: crispEdges;
+			}
+			
+			.y.axis line {
+				stroke: #555;
+				stroke-opacity: 0.25;
+				fill: none;
+			}
+
+	</style>
+	</head>
+	<body>
+		<h1>Household Size</h1>
+		<br/>
+		<div id="chart"></div>
+		<script src="js/d3.v3.min.js"></script>
+		<script src="data/household-size-data.js"></script>
+		<script>
+			
+			var margin = {top: 20, right: 20, bottom: 35, left: 40},
+				width = 600 - margin.left - margin.right,
+				height = 400 - margin.top - margin.bottom;
+
+			var x = d3.scale.ordinal()
+				.rangeRoundBands([0, width], .1);
+
+			var y = d3.scale.linear()
+				.range([height, 0]);
+
+			var xAxis = d3.svg.axis()
+				.scale(x)
+				.orient("bottom");
+
+			var yAxis = d3.svg.axis()
+				.scale(y)
+				.orient("left")
+				.innerTickSize(-width);
+
+			var svg = d3.select("#chart").append("svg")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+			  .append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		  x.domain(data.map(function(d) { return d.size; }));
+		  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+
+		  svg.append("g")
+			  .attr("class", "x axis")
+			  .attr("transform", "translate(0," + height + ")")
+			  .call(xAxis)
+			.append("text")
+			  .attr("transform", "translate(" + width/2 + ", 0)")
+			  .attr("y", 25)
+			  .attr("dy", ".71em")
+			  .style("text-anchor", "middle")
+			  .text("Number of persons in household");
+			  
+		  svg.append("g")
+			  .attr("class", "y axis")
+			  .call(yAxis)
+			.append("text")
+			  .attr("transform", "rotate(-90)")
+			  .attr("y", 6)
+			  .attr("dy", ".71em")
+			  .style("text-anchor", "end")
+			  .text("Frequency");
+
+		  svg.selectAll(".bar")
+			  .data(data)
+			.enter().append("rect")
+			  .attr("class", "bar")
+			  .attr("x", function(d) { return x(d.size); })
+			  .attr("width", x.rangeBand())
+			  .attr("y", function(d) { return y(d.frequency); })
+			  .attr("height", function(d) { return height - y(d.frequency); });
+
+		</script>
+	</body>
+</html>

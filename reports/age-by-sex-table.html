@@ -1,0 +1,75 @@
+<html>
+<head>
+    <script src="js/mustache.min.js"></script>
+    <meta charset="utf-8">
+    <title>Population Distribution by Age and Sex</title>
+    <link href="css/reports.css" rel="stylesheet" type="text/css" />
+    <style type='text/css'>
+
+		#tableContainer {
+			width: 500px;
+		}
+
+		table {
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 11px;
+			color: #333;
+			border-width: 1px;
+			border-color: #666;
+			border-collapse: collapse;
+		}
+
+		table th {
+			border-width: 1px;
+			padding: 8px;
+			border-style: solid;
+			border-color: #666;
+			background-color: #dedede;
+		}
+
+		table td {
+			border-width: 1px;
+			padding: 8px;
+			border-style: solid;
+			border-color: #000;
+			text-color: #fff;
+		}
+    </style>
+</head>
+
+<body>
+    <h1>Population Distribution by Age and Sex</h1>
+    <br/>
+
+    <div id="tableContainer">
+        <div id="table">
+        </div>
+    </div>
+    <script src="data/age-by-sex-table-data.js">
+    </script> 
+    <script id="table-template" type="text/template">
+		<table>
+			<tr>
+				<th>Age</th>
+				<th>Total</th>
+				<th>Male</th>
+				<th>Female</th>
+			</tr>
+			{{#.}}
+				<tr>
+					<th>{{group}}</th>
+					<td>{{total}}</td>
+					<td>{{male}}</td>
+					<td>{{female}}</td>
+				</tr>
+			{{/.}}
+		</table>
+    </script> 
+    <script>
+    var template = document.getElementById('table-template').innerHTML;
+    var renderedTable = Mustache.to_html(template, data);
+    document.getElementById('table').innerHTML = renderedTable;
+    </script>
+</body>
+</html>

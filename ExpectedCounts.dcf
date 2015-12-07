@@ -1,0 +1,33 @@
+﻿[Dictionary]
+Version=CSPro 6.1
+Label=ExpectedCounts
+Name=EXPECTEDCOUNTS_DICT
+RecordTypeStart=0
+RecordTypeLen=0
+Positions=Relative
+ZeroFill=No
+DecimalChar=Yes
+
+[Level]
+Label=ExpectedCounts questionnaire
+Name=EXPECTEDCOUNTS_QUEST
+
+[IdItems]
+
+[Item]
+Label=ExpectedCounts identification
+Name=EC_EA
+Start=1
+Len=3
+
+[Record]
+Label=ExpectedCounts record
+Name=EXPECTEDCOUNTS_REC
+RecordTypeValue=''
+RecordLen=6
+
+[Item]
+Label=Expected households
+Name=EC_HOUSEHOLDS
+Start=4
+Len=3
