@@ -324,6 +324,7 @@ PROC REPORTS_FF
 preproc
 reportDirectory = pathname(Application) + "reports/";
 reportDataDirectory = reportDirectory + "data/";
+dircreate(reportDataDirectory);
 
 PROC REPORT
 
