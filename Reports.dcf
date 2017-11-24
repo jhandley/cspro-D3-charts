@@ -28,13 +28,13 @@ RecordLen=3
 
 [Item]
 Label=Report
-Name=REPORT
+Name=MENU
 Start=3
 Len=1
 
 [ValueSet]
 Label=Report
-Name=REPORT_VS1
+Name=MENU_VS1
 Value=1;Completed interviews by day
 Value=2;Counts versus expected
 Value=3;Housing type

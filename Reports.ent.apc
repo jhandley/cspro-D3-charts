@@ -45,7 +45,7 @@ function showHtmlReport(string htmlFilename)
 
 	if getos() in 20:29 then
 		// Android - use "browse:"
-		execsystem(maketext("view:%s", fullFilePath));
+		execsystem(maketext("html:file://%s", fullFilePath));
 	else
 		// Windows - use "explorer.exe <filename>"
 		execsystem(maketext("%sexplorer.exe %s", 
@@ -326,21 +326,21 @@ reportDirectory = pathname(Application) + "reports/";
 reportDataDirectory = reportDirectory + "data/";
 dircreate(reportDataDirectory);
 
-PROC REPORT
+PROC MENU
 
-if REPORT = 1 then
+if MENU = 1 then
 	interviewsCompletedByDayReport();
-elseif REPORT = 2 then
+elseif MENU = 2 then
 	countsVsExpectedReport();
-elseif REPORT = 3 then
+elseif MENU = 3 then
 	housingTypeReport();
-elseif REPORT = 4 then
+elseif MENU = 4 then
 	ageBySexReport("age-by-sex-table");
-elseif REPORT = 5 then
+elseif MENU = 5 then
 	ageBySexReport("population-pyramid");
-elseif REPORT = 6 then
+elseif MENU = 6 then
 	householdSizeReport();
-elseif REPORT = 9 then
+elseif MENU = 9 then
 	stop(1);
 endif;
 
