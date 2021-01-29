@@ -1,0 +1,85 @@
+{
+  "fileType": "Application Deployment Specification",
+  "version": "7.6",
+  "name": "CSPro D3 Charts",
+  "description": "Example of using D3 charts in CSPro",
+  "files": [
+    {
+      "path": ".\\ExpectedCounts.dat"
+    },
+    {
+      "path": ".\\Popstan Census.dat"
+    },
+    {
+      "path": ".\\Reports.ent"
+    },
+    {
+      "path": ".\\Reports.pff"
+    },
+    {
+      "path": ".\\reports\\age-by-sex-table.html"
+    },
+    {
+      "path": ".\\reports\\completed-by-day.html"
+    },
+    {
+      "path": ".\\reports\\completed-by-day-by-enumerator-cumulative.html"
+    },
+    {
+      "path": ".\\reports\\counts-vs-expected.html"
+    },
+    {
+      "path": ".\\reports\\css\\reports.css"
+    },
+    {
+      "path": ".\\reports\\data\\age-by-sex-table-data.js"
+    },
+    {
+      "path": ".\\reports\\data\\completed-by-day-by-enumerator-cumulative-data.js"
+    },
+    {
+      "path": ".\\reports\\data\\counts-vs-expected-data.js"
+    },
+    {
+      "path": ".\\reports\\data\\household-size-data.js"
+    },
+    {
+      "path": ".\\reports\\data\\housing-type-data.js"
+    },
+    {
+      "path": ".\\reports\\data\\population-pyramid-data.js"
+    },
+    {
+      "path": ".\\reports\\household-size.html"
+    },
+    {
+      "path": ".\\reports\\housing-type.html"
+    },
+    {
+      "path": ".\\reports\\js\\d3.v3.min.js"
+    },
+    {
+      "path": ".\\reports\\js\\jquery.min.js"
+    },
+    {
+      "path": ".\\reports\\js\\mustache.min.js"
+    },
+    {
+      "path": ".\\reports\\population-pyramid.html"
+    }
+  ],
+  "dictionaries": [
+    {
+      "path": ".\\Census Dictionary.dcf"
+    },
+    {
+      "path": ".\\ExpectedCounts.dcf"
+    },
+    {
+      "path": ".\\Reports.dcf"
+    }
+  ],
+  "deployment": {
+    "type": "Dropbox"
+  }
+}
