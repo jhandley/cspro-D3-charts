@@ -1,5 +1,5 @@
 ﻿[FormFile]
-Version=CSPro 6.1
+Version=CSPro 7.6
 Name=REPORTS_FF
 Label=Reports
 DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
@@ -28,7 +28,6 @@ Required=Yes
 Name=REPORTS_QUEST_FORM
 Label=Reports questionnaire
 Form=1
-LogicControl=No
 Max=1
   
 [Field]

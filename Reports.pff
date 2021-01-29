@@ -1,23 +1,19 @@
 ﻿[Run Information]
-Version=CSPro 6.1
+Version=CSPro 7.6
 AppType=Entry
 Description=HTML Reporting with Charts Demo
 
 [DataEntryInit]
 StartMode=Add
-Interactive=Ask
+Lock=CaseListing
 
 [Files]
 Application=.\Reports.ent
-InputData=.\dummy.dat
+InputData=|type=None
 
 [ExternalFiles]
-LESOTHOCENSUS2016_DICT=.\PHC2016.dat
-EXPECTEDCOUNTS_DICT=.\ExpectedCounts.dat
 CEN2000=.\Popstan Census.dat
+EXPECTEDCOUNTS_DICT=.\ExpectedCounts.dat
 
 [UserFiles]
-TEMPFILE=
-
-[Parameters]
-
+tempFile=
